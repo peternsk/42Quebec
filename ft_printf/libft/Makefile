@@ -14,7 +14,7 @@ BONUS_SRC	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_ba
 				ft_lstiter.c ft_lstmap.c	
 
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(BONUS_OBJ)
 		ar -rcs $@ $^
 
 bonus: $(BONUS_OBJ)
@@ -26,7 +26,7 @@ all: $(NAME)
 	$(CC) $(FLAGS) -c $^ -o $@
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	$(RM) $(OBJ) $(BONUS_OBJ) $(NAME)
 
 fclean: clean
 	$(RM) $(NAME)
