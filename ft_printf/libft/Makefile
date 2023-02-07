@@ -18,12 +18,12 @@ $(NAME): $(OBJ) $(BONUS_OBJ)
 		ar -rcs $@ $^
 
 bonus: $(BONUS_OBJ)
-		ar -rcs ${NAME} $^ 	
-
-all: $(NAME)
+		ar -rcs ${NAME} $^ 
 
 %.o : %.c
-	$(CC) $(FLAGS) -c $^ -o $@
+	$(CC) $(FLAGS) -c $^ -o $@	
+
+all: $(NAME)
 
 clean:
 	$(RM) $(OBJ) $(BONUS_OBJ) $(NAME)
