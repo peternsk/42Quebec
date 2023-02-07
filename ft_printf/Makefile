@@ -15,6 +15,9 @@ libft :
 
 all: $(NAME)
 
+%.o : %.c
+	$(CC) $(FLAGS) -c $^ -o $@
+
 clean:
 	$(MAKE) -C ./libft clean
 	$(RM) $(OBJ)

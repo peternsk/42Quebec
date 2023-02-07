@@ -22,6 +22,9 @@ bonus: $(BONUS_OBJ)
 
 all: $(NAME)
 
+%.o : %.c
+	$(CC) $(FLAGS) -c $^ -o $@
+
 clean:
 	$(RM) $(OBJ) $(BONUS_OBJ)
 
