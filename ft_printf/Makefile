@@ -1,29 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/09 11:32:30 by pnsaka            #+#    #+#              #
+#    Updated: 2023/02/09 11:32:34 by pnsaka           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME    =   libftprintf.a
-CC      =	gcc
-FLAGS   =	-Wall -Werror -Wextra
-RM      =	rm -rf
-OBJ     =   $(SRC:.c=.o)
-LIB_MAKE =	$(MAKE) -C ./libft all
+CC		=	gcc
+FLAGS	=	-Wall -Werror -Wextra
+RM		=	rm -rf
+OBJ		=   $(SRC:.c=.o)
+LIB_MAK	=	$(MAKE) -C ./libft
 SRC     =	ft_printf.c \
 
 $(NAME): $(OBJ)
-		$(LIB_MAKE)
+		$(LIB_MAK) all
 		ld -r -o $@ $(OBJ) ./libft/libft.a
-
-libft :
-		$(MAKE) -C ./libft all
 
 %.o : %.c
 	$(CC) $(FLAGS) -c $^ -o $@
 
-all: $(NAME)
+all : $(NAME)
 
 clean:
-	$(MAKE) -C ./libft clean
+	$(LIB_MAK) clean
 	$(RM) $(OBJ)
 
 fclean: clean
+	$(LIB_MAK) fclean
 	$(RM) $(NAME)
+	
 re: fclean all
 
 .PHONY:		all clean fclean re
