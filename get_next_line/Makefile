@@ -5,36 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/09 11:32:30 by pnsaka            #+#    #+#              #
-#    Updated: 2023/02/10 10:47:46 by pnsaka           ###   ########.fr        #
+#    Created: 2023/02/10 11:31:59 by pnsaka            #+#    #+#              #
+#    Updated: 2023/02/10 11:32:00 by pnsaka           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    =   libftprintf.a
-CC		=	gcc
-FLAGS	=	-Wall -Werror -Wextra
-RM		=	rm -rf
-OBJ		=   $(SRC:.c=.o)
-LIB_MAK	=	$(MAKE) -C ./libft
-SRC     =	ft_printf.c \
-
-$(NAME): $(OBJ)
-		$(LIB_MAK) all
-		ld -r -o $@ $(OBJ) -lc ./libft/libft.a
-
-%.o : %.c
-	$(CC) $(FLAGS) -c $^ -o $@
-
-all : $(NAME)
-
-clean:
-	$(LIB_MAK) clean
-	$(RM) $(OBJ)
-
-fclean: clean
-	$(LIB_MAK) fclean
-	$(RM) $(NAME)
-	
-re: fclean all
-
-.PHONY:		all clean fclean re
