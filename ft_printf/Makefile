@@ -6,7 +6,7 @@
 #    By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 11:32:30 by pnsaka            #+#    #+#              #
-#    Updated: 2023/02/10 10:47:46 by pnsaka           ###   ########.fr        #
+#    Updated: 2023/02/10 15:23:56 by pnsaka           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC     =	ft_printf.c \
 
 $(NAME): $(OBJ)
 		$(LIB_MAK) all
-		ld -r -o $@ $(OBJ) -lc ./libft/libft.a
+#		ar rcs $(OBJ) $(LIB_MAK)
+		ld -r -o $@ $(OBJ) ./libft/libft.a
 
 %.o : %.c
 	$(CC) $(FLAGS) -c $^ -o $@
