@@ -6,7 +6,14 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/10 12:10:24 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/13 10:45:39 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
+char *get_next_line(int fd)
+{
+
+    
+}
