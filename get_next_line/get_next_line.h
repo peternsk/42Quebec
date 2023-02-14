@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:09 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/13 11:06:49 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/14 12:25:12 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 # include <sys/types.h>
 # include <fcntl.h>
 
+
 char *get_next_line(int fd);
+int ft_strlen(char *s);
 
 #endif
 

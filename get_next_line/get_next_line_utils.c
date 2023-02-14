@@ -6,8 +6,21 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:05 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/13 10:46:04 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/14 12:17:55 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int ft_strlen(char *s)
+{
+  int i;
+
+  i = 0;
+  while(s[i])
+    {
+      i++;
+    }
+  return(i);
+}
+
