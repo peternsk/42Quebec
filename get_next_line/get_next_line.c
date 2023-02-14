@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/14 13:12:06 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/14 13:49:43 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	get_line(int fd)
 	char *buffer;
 	char *temp;
 	int buff_len;
+	int i;
 	
+	i = 0;
 	buff_len = ft_strlen(buffer);
 	temp = (char*)malloc(buff_len * sizeof(char));
 	if(!temp)
@@ -28,7 +30,9 @@ void	get_line(int fd)
 		return(0);
 	}
 	read(fd, buffer, BUFFER_SIZE);
-	
-	
+	while(buffer[i] != '\n')
+	{
+		
+	}
 	
 }
