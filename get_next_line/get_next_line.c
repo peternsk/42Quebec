@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/14 13:49:43 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/15 11:12:55 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	get_line(int fd)
 {
 	static char *str;
+
 	char *buffer;
 	char *temp;
 	int buff_len;
