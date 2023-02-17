@@ -6,34 +6,28 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/15 11:12:55 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/17 14:29:02 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-#define BUFFER_SIZE 5
 
-void	get_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *str;
-
+	static char *str_stat;
 	char *buffer;
 	char *temp;
-	int buff_len;
-	int i;
 	
-	i = 0;
-	buff_len = ft_strlen(buffer);
-	temp = (char*)malloc(buff_len * sizeof(char));
-	if(!temp)
+	buffer = (char*)malloc(BUFFER_SIZE * sizeof(char));
+	if (!buffer)
 	{
-		return(0);
+		return (0);
 	}
 	read(fd, buffer, BUFFER_SIZE);
-	while(buffer[i] != '\n')
-	{
-		
-	}
-	
+	temp = str_attach(str_stat, buffer);
+	str_stat = str_cpy(temp);
+	free(temp);
+
+	return(0);
 }
