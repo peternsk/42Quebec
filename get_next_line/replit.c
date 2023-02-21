@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:49:38 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/20 19:11:03 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:21:28 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-#define BUFFER_SIZE 70
+#define BUFFER_SIZE 8
 
 int ft_strlen(char *s)
 {
@@ -87,18 +87,18 @@ char	*get_next_line(int fd)
 	static char *str_stat;
 	char *buffer;
   int i;
-  int ret;
+ 
 
-  ret = 1;
+ 
 	i = 1;
 	buffer = (char*)malloc(BUFFER_SIZE * sizeof(char) + 1);
 	if (!buffer)
 	{
 		return (0);
 	} 
-  while(!ft_strchr(buffer ,'\n') && ret > 0)
+  while(!ft_strchr(buffer ,'\n'))
     {
-      ret = read(fd, buffer, BUFFER_SIZE);
+      read(fd, buffer, BUFFER_SIZE);
       str_stat = str_attach(str_stat, buffer);
       str_stat = ft_strchr(buffer, '\n'); 
       i++;
