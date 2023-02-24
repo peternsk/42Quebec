@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/24 10:32:48 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:36:55 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ char	*get_next_line(int fd)
 		{
 			break;
 		}
-		printf("%s\n", str_stat);
 		i++;
 	}
 	return (ft_nique_ta_table(str_stat));
