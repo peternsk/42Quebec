@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:05 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/21 20:38:35 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:32:03 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char *ft_nique_ta_table(char *str)
       j++;
     }
   str = ft_strchr(str, '\n');
+  printf("reste ---> %s\n", str);
   return(str_wobakn);
 }
 
@@ -58,12 +59,11 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return ((char *)s + i - 1);
+			return ((char *)s + i + 1);
 		i++;
 	}
 	return (0);
 }
-
 
 int chr_bakn(char *str, char c)
 {
@@ -110,8 +110,5 @@ char	*str_attach(char *base_str, char *add_str)
 		i++;
 	}
 	new_str[i] = '\0';
-	/*printf("base <-> %s\n add <-> %s\n new <-> %s\n", base_str, add_str,
-			new_str);*/
-	printf("\n\n");
 	return (new_str);
 }

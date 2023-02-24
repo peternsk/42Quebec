@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:09 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/21 20:14:31 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:29:12 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-# define BUFFER_SIZE 10
+# define BUFFER_SIZE 20
 
 char	*get_next_line(int fd);
 int		ft_strlen(char *s);
@@ -29,5 +29,6 @@ char	*str_attach(char *base_str, char *add_str);
 char	*ft_strchr(const char *s, int c);
 int		chr_bakn(char *str, char c);
 char	*ft_nique_ta_table(char *str);
+char	*ft_memmove(char *dst, const char *src, size_t len);
 
 #endif

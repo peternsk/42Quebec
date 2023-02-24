@@ -6,11 +6,42 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/21 20:36:46 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:32:48 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_memmove(char *dst, const char *src, size_t len)
+{
+	size_t	i;
+
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	if (dst >= src)
+	{
+		while (len > 0)
+		{
+			dst[len - 1] = src[len - 1];
+			len--;
+		}
+	}
+	else
+	{
+	if (!dst && !src)
+		return (0);
+	while (i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	}
+	dst[ft_strlen((char *)src)] = '\0';
+	return (dst);
+}
 
 char	*get_next_line(int fd)
 {
@@ -26,13 +57,11 @@ char	*get_next_line(int fd)
 	}
 	while (read(fd, buffer, BUFFER_SIZE))
 	{
-		//read(fd, buffer, BUFFER_SIZE);
 		str_stat = str_attach(str_stat, buffer);
 		if (chr_bakn(buffer, '\n') == 1)
 		{
 			break;
 		}
-		// str_stat = ft_strchr(buffer, '\n');
 		printf("%s\n", str_stat);
 		i++;
 	}
