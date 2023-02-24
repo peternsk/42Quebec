@@ -6,13 +6,13 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:05 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/24 10:41:44 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/24 12:59:36 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *ft_nique_ta_table(char *str)
+char *ft_new_line(char *str)
 {
   char *str_wobakn;
   int i;
@@ -28,8 +28,9 @@ char *ft_nique_ta_table(char *str)
       str_wobakn[j] = str[j];
       j++;
     }
-  str = ft_strchr(str, '\n');
-  ////////str_stat = ft_memmove(str_stat, str, len);
+  //str = ft_strchr(str, '\n');
+  str = ft_memmove(str, str + i + 1, ft_strlen(str + i + 1));
+  printf("nouvelle stat --->%s\n", str);
   printf("reste ---> %s\n", str);
   return(str_wobakn);
 }

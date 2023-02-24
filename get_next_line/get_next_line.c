@@ -6,17 +6,18 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/02/24 10:36:55 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/02/24 12:49:46 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_memmove(char *dst, const char *src, size_t len)
+char	*ft_memmove(char *dst, char *src, size_t len)
 {
 	size_t	i;
 
 	i = 0;
+	len = ft_strlen(src);
 	if (!dst || !src)
 		return (0);
 	if (dst == NULL && src == NULL)
@@ -64,5 +65,5 @@ char	*get_next_line(int fd)
 		}
 		i++;
 	}
-	return (ft_nique_ta_table(str_stat));
+	return (ft_new_line(str_stat));
 }
