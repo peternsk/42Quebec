@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/02 01:44:42 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:29:55 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,13 @@ char	*ft_memcpy(char *dst, const char *src, size_t n)
 char	*get_next_line(int fd)
 {
 	static char	*str_stat;
-	char		*buffer;
+	char buffer[BUFFER_SIZE + 1];
+	
 	int		read_char;
 	
 	if(BUFFER_SIZE <= 0 && fd < 0)
 	{
 		return(NULL);
-	}
-	buffer = (char *)malloc(BUFFER_SIZE * sizeof(char) + 1);
-	if (!buffer)
-	{
-		return (0);
 	}
 	read_char = read(fd, buffer, BUFFER_SIZE);
 	while (read_char > 0)
@@ -77,14 +73,14 @@ char	*get_next_line(int fd)
 			break ;
 		read_char = read(fd, buffer, BUFFER_SIZE);
 	}
-	free(buffer);
-	if(read_char == -1)
-	{
-		return(NULL);
-	}
 	if(read_char <= 0 && ft_strlen(str_stat) == 0)
 	{
-		return(free(str_stat), NULL);
+		if(str_stat)
+		{
+			free(str_stat);
+			str_stat = NULL;
+		}
+		return(NULL);
 	}
 	return (ft_new_line(str_stat));
 }
