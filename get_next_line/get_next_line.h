@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:09 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/01 22:46:01 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 01:05:06 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-//# define BUFFER_SIZE 10
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+# endif
 
 char	*get_next_line(int fd);
 int		ft_strlen(char *s);

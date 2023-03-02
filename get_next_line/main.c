@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:29:18 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/01 22:18:44 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 00:58:43 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	main(void)
 
 	i = 0;
 	fd = open("test.txt", O_RDONLY);
-	while (i <= 10)
+	while (i <= 66)
 	{
 		str = get_next_line(fd);
-		//printf("line ---> %s\n\n\n", str);
+		printf("line ---> %s", str);
 		free(str);
 		i++;
 	}

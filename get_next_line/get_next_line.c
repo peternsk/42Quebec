@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/01 22:50:53 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 01:44:42 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_memmove(char *dst, char *src, size_t len)
 	{
 		ft_memcpy(dst, src, len);
 	}
-	dst[ft_strlen((char *)src)] = '\0';
+	dst[ft_strlen(src)] = '\0';
 	return (dst);
 }
 
@@ -57,9 +57,9 @@ char	*get_next_line(int fd)
 {
 	static char	*str_stat;
 	char		*buffer;
-	size_t		read_char;
+	int		read_char;
 	
-	if(BUFFER_SIZE <= 0 || fd < 0)
+	if(BUFFER_SIZE <= 0 && fd < 0)
 	{
 		return(NULL);
 	}
@@ -74,12 +74,14 @@ char	*get_next_line(int fd)
 		buffer[read_char] = '\0';
 		str_stat = str_attach(str_stat, buffer);
 		if (chr_bakn(buffer, '\n') == 1)
-		{
 			break ;
-		}
 		read_char = read(fd, buffer, BUFFER_SIZE);
 	}
 	free(buffer);
+	if(read_char == -1)
+	{
+		return(NULL);
+	}
 	if(read_char <= 0 && ft_strlen(str_stat) == 0)
 	{
 		return(free(str_stat), NULL);

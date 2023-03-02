@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:05 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/01 22:54:39 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 01:08:29 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_new_line(char *str)
 
 	i = 0;
 	str_wobakn = malloc(sizeof(char) + ft_strlen(str) + 1);
-	while (str)
+	while (str[i])
 	{
 		str_wobakn[i] = str[i];
 		if (str[i] == '\n')
@@ -29,10 +29,10 @@ char	*ft_new_line(char *str)
 		}
 		i++;
 	}
+	str_wobakn[i] = '\0';
 	str = ft_memmove(str, str + i, ft_strlen(str + i));
 	//printf("nouvelle stat --->%s\n", str);
 	//printf("reste ---> %s\n", str);
-	str_wobakn[i] = '\0';
 	return (str_wobakn);
 }
 
