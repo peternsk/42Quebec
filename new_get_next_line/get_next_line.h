@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 14:29:18 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/01 22:18:44 by pnsaka           ###   ########.fr       */
+/*   Created: 2023/03/01 13:15:30 by pnsaka            #+#    #+#             */
+/*   Updated: 2023/03/01 13:16:23 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(void)
-{
-	int		i;
-	char	*str;
-	int		fd;
+# include <fcntl.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <stdlib.h>
 
-	i = 0;
-	fd = open("test.txt", O_RDONLY);
-	while (i <= 10)
-	{
-		str = get_next_line(fd);
-		//printf("line ---> %s\n\n\n", str);
-		free(str);
-		i++;
-	}
-	return (0);
-}
+
+# define BUFFER_SIZE 6
+
+
+#endif
