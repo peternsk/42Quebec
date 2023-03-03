@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:05 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/02 19:09:00 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:57:24 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,30 +82,29 @@ int	chr_bakn(char *str, char c)
 
 char	*str_attach(char *base_str, char *add_str)
 {
-	size_t	comb_len;
 	char	*new_str;
-	int		i;
+	int		len;
 
-	comb_len = (ft_strlen(base_str) + ft_strlen(add_str));
-	new_str = (char *)malloc(comb_len * sizeof(char) + 1);
+	len = (ft_strlen(base_str) + ft_strlen(add_str));
+	new_str = (char *)malloc(len * sizeof(char) + 1);
 	if (!new_str)
 		return (0);
-	i = 0;
+	len = 0;
 	if (base_str != NULL)
 	{
-		while (base_str[i])
+		while (base_str[len])
 		{
-			new_str[i] = base_str[i];
-			i++;
+			new_str[len] = base_str[len];
+			len++;
 		}
 		free(base_str);
 	}
 	while (*add_str)
 	{
-		new_str[i] = *add_str;
-		i++;
+		new_str[len] = *add_str;
+		len++;
 		add_str++;
 	}
-	new_str[i] = '\0';
+	new_str[len] = '\0';
 	return (new_str);
 }
