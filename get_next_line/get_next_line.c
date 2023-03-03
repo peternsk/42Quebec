@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/02 16:29:55 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:47:55 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 char	*ft_memmove(char *dst, char *src, size_t len)
 {
-	size_t	i;
-
-	i = 0;
 	len = ft_strlen(src);
 	if (!dst || !src)
 		return (0);
@@ -56,14 +53,9 @@ char	*ft_memcpy(char *dst, const char *src, size_t n)
 char	*get_next_line(int fd)
 {
 	static char	*str_stat;
-	char buffer[BUFFER_SIZE + 1];
-	
-	int		read_char;
-	
-	if(BUFFER_SIZE <= 0 && fd < 0)
-	{
-		return(NULL);
-	}
+	char		buffer[BUFFER_SIZE + 1];
+	int			read_char;
+
 	read_char = read(fd, buffer, BUFFER_SIZE);
 	while (read_char > 0)
 	{
@@ -73,14 +65,14 @@ char	*get_next_line(int fd)
 			break ;
 		read_char = read(fd, buffer, BUFFER_SIZE);
 	}
-	if(read_char <= 0 && ft_strlen(str_stat) == 0)
+	if ((read_char == -1) || (read_char <= 0 && ft_strlen(str_stat) == 0))
 	{
-		if(str_stat)
+		if (str_stat)
 		{
 			free(str_stat);
 			str_stat = NULL;
 		}
-		return(NULL);
+		return (NULL);
 	}
 	return (ft_new_line(str_stat));
 }

@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:05 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/02 01:08:29 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:09:00 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ char	*ft_new_line(char *str)
 	}
 	str_wobakn[i] = '\0';
 	str = ft_memmove(str, str + i, ft_strlen(str + i));
-	//printf("nouvelle stat --->%s\n", str);
-	//printf("reste ---> %s\n", str);
 	return (str_wobakn);
 }
 
@@ -84,19 +82,15 @@ int	chr_bakn(char *str, char c)
 
 char	*str_attach(char *base_str, char *add_str)
 {
-	size_t comb_len;
-	char *new_str;
-	int i;
-	int j;
+	size_t	comb_len;
+	char	*new_str;
+	int		i;
 
 	comb_len = (ft_strlen(base_str) + ft_strlen(add_str));
 	new_str = (char *)malloc(comb_len * sizeof(char) + 1);
 	if (!new_str)
-	{
 		return (0);
-	}
 	i = 0;
-	j = 0;
 	if (base_str != NULL)
 	{
 		while (base_str[i])
@@ -106,11 +100,11 @@ char	*str_attach(char *base_str, char *add_str)
 		}
 		free(base_str);
 	}
-	while (add_str[j])
+	while (*add_str)
 	{
-		new_str[i] = add_str[j];
-		j++;
+		new_str[i] = *add_str;
 		i++;
+		add_str++;
 	}
 	new_str[i] = '\0';
 	return (new_str);
