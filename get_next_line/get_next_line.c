@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:25:47 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/02 19:47:55 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:22:05 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*get_next_line(int fd)
 {
 	static char	*str_stat;
 	char		buffer[BUFFER_SIZE + 1];
-	int			read_char;
+	ssize_t		read_char;
 
 	read_char = read(fd, buffer, BUFFER_SIZE);
 	while (read_char > 0)

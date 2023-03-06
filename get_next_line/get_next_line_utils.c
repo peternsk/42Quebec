@@ -6,33 +6,11 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:05 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/02 19:57:24 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:28:58 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_new_line(char *str)
-{
-	char	*str_wobakn;
-	int		i;
-
-	i = 0;
-	str_wobakn = malloc(sizeof(char) + ft_strlen(str) + 1);
-	while (str[i])
-	{
-		str_wobakn[i] = str[i];
-		if (str[i] == '\n')
-		{
-			i++;
-			break ;
-		}
-		i++;
-	}
-	str_wobakn[i] = '\0';
-	str = ft_memmove(str, str + i, ft_strlen(str + i));
-	return (str_wobakn);
-}
 
 int	ft_strlen(char *s)
 {
@@ -66,7 +44,7 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-int	chr_bakn(char *str, char c)
+size_t	chr_bakn(char *str, char c)
 {
 	int	i;
 
@@ -78,6 +56,28 @@ int	chr_bakn(char *str, char c)
 		i++;
 	}
 	return (0);
+}
+
+char	*ft_new_line(char *str)
+{
+	char	*str_wobakn;
+	int		i;
+
+	i = 0;
+	str_wobakn = malloc(sizeof(char) + ft_strlen(str) + 1);
+	while (str[i])
+	{
+		str_wobakn[i] = str[i];
+		if (str[i] == '\n')
+		{
+			i++;
+			break ;
+		}
+		i++;
+	}
+	str_wobakn[i] = '\0';
+	str = ft_memmove(str, str + i, ft_strlen(str + i));
+	return (str_wobakn);
 }
 
 char	*str_attach(char *base_str, char *add_str)

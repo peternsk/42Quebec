@@ -6,7 +6,7 @@
 /*   By: pnsaka <pnsaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:32:09 by pnsaka            #+#    #+#             */
-/*   Updated: 2023/03/02 20:58:59 by pnsaka           ###   ########.fr       */
+/*   Updated: 2023/03/03 10:46:30 by pnsaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_next_line(int fd);
 int		ft_strlen(char *s);
 char	*str_attach(char *base_str, char *add_str);
 char	*ft_strchr(const char *s, int c);
-int		chr_bakn(char *str, char c);
+size_t	chr_bakn(char *str, char c);
 char	*ft_new_line(char *str);
 char	*ft_memmove(char *dst, char *src, size_t len);
 char	*ft_memcpy(char *dst, const char *src, size_t n);
